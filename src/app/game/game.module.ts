@@ -5,15 +5,22 @@ import { GameComponent } from './game/game.component';
 import {
   GameService,
   ColorService,
+  DiceService,
   DefaultColorService,
-  DefaultGameService
+  DefaultGameService,
+  DefaultDiceService
 } from './services';
 
 @NgModule({
-  declarations: [ GameComponent ],
+  declarations: [
+    GameComponent
+  ],
   imports: [
     CommonModule,
     FormsModule
+  ],
+  exports: [
+    GameComponent
   ],
   providers: [
     {
@@ -23,6 +30,10 @@ import {
     {
       provide: ColorService,
       useClass: DefaultColorService
+    },
+    {
+      provide: DiceService,
+      useClass: DefaultDiceService
     }
   ]
 })
